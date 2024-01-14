@@ -20,7 +20,7 @@ export const initialProfile = async () => {
         return profile;
     }
 
-    // se o usuario nao existir crie um
+    // se o usuario nao existir crie um profile
     const newProfile = await prismadb.profile.create({
         data: {
             userId: user.id,
