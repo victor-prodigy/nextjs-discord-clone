@@ -42,10 +42,10 @@ const MemberIdPage = async ({
     });
 
     if (!currentMember) {
-        return redirect("/"); // return porque a função será encerrada após o redirecionamento,
+        return redirect("/"); // return porque a função será encerrada após o redirecionamento
     }
 
-    // [PrismaDB Function] Pegar Conversa Criada
+    // [PrismaDB Function] pegar Conversa(Conversation) ou criar Conversa(Conversation)
     const conversation = await getOrCreateConversation(currentMember.id, params.memberId);
 
     if (!conversation) {

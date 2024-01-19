@@ -20,3 +20,29 @@ Problema ao clicar no botão o edit modal de um canal(channel) não acessa ao em
     e.stopPropagation();
     onOpen(action, { channel, server });
 }"
+
+# https://youtu.be/ZbX4Ok9YX94?t=38369
+Import trace for requested module:
+./node_modules/ws/lib/buffer-util.js
+./node_modules/ws/lib/receiver.js
+./node_modules/ws/wrapper.mjs
+./node_modules/engine.io-client/build/esm-debug/transports/websocket-constructor.js
+./node_modules/engine.io-client/build/esm-debug/index.js
+./node_modules/socket.io-client/build/esm-debug/url.js
+./node_modules/socket.io-client/build/esm-debug/index.js
+./components/providers/socket-provider.tsx
+
+./node_modules/ws/lib/validation.js
+Module not found: Can't resolve 'utf-8-validate' in 'C:\Users\victo\OneDrive\Área de Trabalho\site_nextjs_services_in_production-main\node_modules\ws\lib'
+
+Import trace for requested module:
+./node_modules/ws/lib/validation.js
+./node_modules/ws/lib/receiver.js
+./node_modules/ws/wrapper.mjs
+./node_modules/engine.io-client/build/esm-debug/transports/websocket-constructor.js
+./node_modules/engine.io-client/build/esm-debug/index.js
+./node_modules/socket.io-client/build/esm-debug/url.js
+./node_modules/socket.io-client/build/esm-debug/index.js
+./components/providers/socket-provider.tsx
+ ⚠ ./node_modules/ws/lib/buffer-util.js
+Module not found: Can't resolve 'bufferutil' in 'C:\Users\victo\OneDrive\Área de Trabalho\site_nextjs_services_in_production-main\node_modules\ws\lib'

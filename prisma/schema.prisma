@@ -61,8 +61,8 @@ model Member {
   server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   messages               Message[]
-  conversationsInitiated Conversation[]  @relation("MemberOne") // Initiated = conversa Iniciada
-  conversationsReceived  Conversation[]  @relation("MemberTwo") // Received = conversa Recebida
+  conversationsInitiated Conversation[]  @relation("MemberOne") // Relação com as conversas iniciadas pelo usuário (relacionadas ao campo "userOne" em "Conversation").
+  conversationsReceived  Conversation[]  @relation("MemberTwo") // Relação com as conversas recebidas pelo usuário (relacionadas ao campo "userTwo" em "Conversation").
   directMessages         DirectMessage[]
 
   createdAt DateTime @default(now())
@@ -101,7 +101,6 @@ model Channel {
 model Message {
   id      String @id @default(uuid())
   content String @db.Text
-
   fileUrl String? @db.Text
 
   memberId String
@@ -148,9 +147,7 @@ model DirectMessage {
   conversationId String
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
-  // Representa se a mensagem direta foi marcada como excluída (true) ou não (false) por padrão. 
-  // Isso permite rastrear o status de exclusão das mensagens.
-  deleted Boolean @default(false)
+  deleted Boolean @default(false) // para desativar a mensagem enviada
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

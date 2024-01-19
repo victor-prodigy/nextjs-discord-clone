@@ -1,3 +1,4 @@
+// para general messages (mensagens dos canais/channels)
 import { NextResponse } from "next/server";
 import { Message } from "@prisma/client";
 

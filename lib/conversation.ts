@@ -59,7 +59,7 @@ const createNewConversation = async (memberOneId: string, memberTwoId: string) =
                     }
                 }
             }
-        })
+        });
     } catch {
         return null; // usando null em vez de usar error que iria bloquear toda a aplicacao
     }

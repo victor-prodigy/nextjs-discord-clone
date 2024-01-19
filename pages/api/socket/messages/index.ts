@@ -1,3 +1,5 @@
+// é preciso do model Message para criar mensagem para cada model Conversation
+// serve para model messagens no canal geral
 import { NextApiRequest } from "next";
 
 import { NextApiResponseServerIo } from "@/types";
@@ -62,6 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponseS
             return res.status(404).json({ message: "Channel not found" });
         }
 
+        // verifica se o profileId do membro é igual ao id do perfil atualmente logado.
         const member = server.members.find((member) => member.profileId === profile.id);
 
         if (!member) {
