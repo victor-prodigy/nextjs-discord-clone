@@ -46,3 +46,15 @@ Import trace for requested module:
 ./components/providers/socket-provider.tsx
  ⚠ ./node_modules/ws/lib/buffer-util.js
 Module not found: Can't resolve 'bufferutil' in 'C:\Users\victo\OneDrive\Área de Trabalho\site_nextjs_services_in_production-main\node_modules\ws\lib'
+
+# [SOLUÇÃO] 
+# webpack: (config) => {
+#        config.externals.push({
+#            "utf-8-validate": "commonjs utf-8-validate",
+#            bufferutil: "commonjs bufferutil",
+#        });
+#
+#        return config;
+#    },
+Failed to load resource: net::ERR_CONNECTION_RESET
+api/socket/io?EIO=4&transport=polling&t=OqVuBVE&sid=ipji49zp255tHX30AAAr:1
