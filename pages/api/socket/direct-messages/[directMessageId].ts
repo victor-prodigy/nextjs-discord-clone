@@ -134,8 +134,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponseS
             })
         }
 
+        // [Socket.io - real-time] Essa parte do código envia uma mensagem de atualização para todos os clientes conectados ao servidor de WebSocket
         const updateKey = `chat:${conversation.id}:messages:update`;
 
+        // [Socket.io - real-time] Ele envia uma mensagem identificada pela chave updateKey para todos os clientes conectados ao servidor de WebSocket
         res?.socket?.server?.io?.emit(updateKey, directMessage);
 
         return res.status(200).json(directMessage);

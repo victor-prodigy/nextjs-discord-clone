@@ -21,7 +21,10 @@ export const DeleteChannelModal = () => {
     const { isOpen, onClose, type, data } = useModal(); // modal
     const router = useRouter();
 
-    const isModalOpen = isOpen && type === "deleteChannel"; // saber se o modal do tipo deleteChannel está aberto ou não // modal
+    // saber se o modal do tipo deleteChannel está aberto ou não
+    const isModalOpen = isOpen && type === "deleteChannel";
+
+    // extraindo dados de type ModalData
     const { server, channel } = data;
 
     const [isLoading, setIsLoading] = useState(false);

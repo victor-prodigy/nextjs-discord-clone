@@ -19,7 +19,10 @@ import { useModal } from "@/hooks/use-modal-store"; // modal
 export const DeleteMessageModal = () => {
     const { isOpen, onClose, type, data } = useModal(); // modal
 
-    const isModalOpen = isOpen && type === "deleteMessage"; // saber se o modal do tipo deleteChannel está aberto ou não // modal
+    // saber se o modal do tipo(type) deleteChannel está aberto ou não
+    const isModalOpen = isOpen && type === "deleteMessage";
+
+    // extraindo dados de type ModalData
     const { apiUrl, query } = data;
 
     const [isLoading, setIsLoading] = useState(false);

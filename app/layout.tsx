@@ -10,8 +10,9 @@ import { ptBR } from '@clerk/localizations'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 // Modal
 import { ModalProvider } from '@/components/providers/modal-provider'
-// Bate-papo
-import { SocketProvider } from '@/components/providers/socket-provider' // Conexão
+// Socket.io Conexão Bate-papo 
+import { SocketProvider } from '@/components/providers/socket-provider'
+// Query Tanstack
 import { QueryProvider } from '@/components/providers/query-provider'
 
 import { cn } from '@/lib/utils'

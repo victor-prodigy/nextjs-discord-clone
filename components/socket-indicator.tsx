@@ -26,5 +26,5 @@ export const SocketIndicator = () => {
         >
             Live: Real-time updates
         </Badge>
-    )
-}
+    );
+};

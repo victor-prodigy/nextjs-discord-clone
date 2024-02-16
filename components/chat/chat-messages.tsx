@@ -52,7 +52,7 @@ export const ChatMessages = ({
     const chatRef = useRef<ElementRef<"div">>(null);
     const bottomRef = useRef<ElementRef<"div">>(null);
 
-    // Consulta/Pesquisa do Chat
+    // @tanstack/react-query v4 - Consulta/Pesquisa do Chat
     const {
         data,
         fetchNextPage,
@@ -66,6 +66,7 @@ export const ChatMessages = ({
         paramValue
     });
 
+    // useEffects
     useChatSocket({ queryKey, addKey, updateKey });
     useChatScroll({
         chatRef,
@@ -73,7 +74,7 @@ export const ChatMessages = ({
         loadMore: fetchNextPage,
         shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
         count: data?.pages?.[0]?.items?.length ?? 0,
-    })
+    });
 
     if (status === "loading") {
         return (

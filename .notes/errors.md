@@ -21,6 +21,7 @@ Problema ao clicar no botão o edit modal de um canal(channel) não acessa ao em
     onOpen(action, { channel, server });
 }"
 
+# ERROR buffer Socket.io 
 # https://youtu.be/ZbX4Ok9YX94?t=38369
 Import trace for requested module:
 ./node_modules/ws/lib/buffer-util.js
@@ -46,7 +47,6 @@ Import trace for requested module:
 ./components/providers/socket-provider.tsx
  ⚠ ./node_modules/ws/lib/buffer-util.js
 Module not found: Can't resolve 'bufferutil' in 'C:\Users\victo\OneDrive\Área de Trabalho\site_nextjs_services_in_production-main\node_modules\ws\lib'
-
 # [SOLUÇÃO] 
 # webpack: (config) => {
 #        config.externals.push({
