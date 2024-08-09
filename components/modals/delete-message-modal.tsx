@@ -4,30 +4,30 @@ import { useState } from "react";
 import axios from "axios";
 import qs from "query-string";
 
+import { useModal } from "@/hooks/use-modal-store";
+
 import {
     Dialog,
     DialogContent,
     DialogDescription,
     DialogFooter,
     DialogHeader,
-    DialogTitle
+    DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-import { useModal } from "@/hooks/use-modal-store"; // modal
-
 export const DeleteMessageModal = () => {
-    const { isOpen, onClose, type, data } = useModal(); // modal
+    const { isOpen, onClose, type, data } = useModal();
 
-    // saber se o modal do tipo(type) deleteChannel está aberto ou não
+    // NOTE: saber se o modal do tipo(type) deleteChannel está aberto ou não
     const isModalOpen = isOpen && type === "deleteMessage";
 
-    // extraindo dados de type ModalData
+    // NOTE: extraindo dados de type ModalData
     const { apiUrl, query } = data;
 
     const [isLoading, setIsLoading] = useState(false);
 
-    // Confirm Delete Server (onClick)
+    // NOTE: Confirm Delete Server (onClick)
     const onConfirm = async () => {
         try {
             setIsLoading(true);
@@ -41,11 +41,11 @@ export const DeleteMessageModal = () => {
 
             onClose();
         } catch (error) {
-            console.log("[DELETE_SERVERS_SUBMIT]", error)
+            console.log("[DELETE_SERVERS_SUBMIT]", error);
         } finally {
             setIsLoading(false);
         }
-    }
+    };
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
@@ -82,5 +82,5 @@ export const DeleteMessageModal = () => {
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};

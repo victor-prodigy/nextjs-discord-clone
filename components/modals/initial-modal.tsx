@@ -58,7 +58,7 @@ export const InitialModal = () => {
 
             form.reset();
             router.refresh();
-            window.location.reload();
+            window.location.reload(); // NOTE: é usado para forçar o navegador a buscar novamente o conteúdo da página atual no servidor, atualizando-a
         } catch (error) {
             console.log("[SUBMIT]", error);
         }

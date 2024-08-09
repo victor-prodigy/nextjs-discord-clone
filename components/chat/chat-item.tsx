@@ -63,7 +63,7 @@ export const ChatItem = ({
     socketUrl,
     socketQuery
 }: ChatItemProps) => {
-    const { onOpen } = useModal(); // abrir modal
+    const { onOpen } = useModal(); // NOTE: [Modal] abrir modal
     const router = useRouter();
     const params = useParams();
 

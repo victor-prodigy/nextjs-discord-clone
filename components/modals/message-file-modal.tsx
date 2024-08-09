@@ -1,21 +1,22 @@
+// NOTE: [Modal] para abrir arquivos a serem adicionados na message entre usuarios
 "use client";
 
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod"
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
 
 import {
-    Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
 } from "@/components/ui/dialog";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 
@@ -23,15 +24,15 @@ import { useModal } from "@/hooks/use-modal-store";
 
 const formSchema = z.object({
     fileUrl: z.string().min(1, {
-        message: "Attachment is required."
-    })
+        message: "Attachment is required.",
+    }),
 });
 
 export const MessageFileModal = () => {
     const { isOpen, onClose, type, data } = useModal();
     const router = useRouter();
 
-    // Open Modal (Abrir Modal messageFile)
+    // NOTE: definindo se modal está aberto e é do tipo `messageFile`
     const isModalOpen = isOpen && type === "messageFile";
 
     const { apiUrl, query } = data; // pegando apiUrl e query de data de useModal();
@@ -44,11 +45,11 @@ export const MessageFileModal = () => {
         },
     });
 
-    // Close Modal (Fechar Modal messageFile)
+    // NOTE: função para fechar esse modal
     const handleClose = () => {
-        form.reset(); // reseta o formulario do modal message
-        onClose(); // fecha o modal message
-    }
+        form.reset(); // NOTE: reseta os campos do formulario desse modal
+        onClose(); // NOTE: para fechar o modal
+    };
 
     const isLoading = form.formState.isSubmitting;
 
@@ -67,11 +68,11 @@ export const MessageFileModal = () => {
 
             form.reset();
             router.refresh();
-            handleClose(); // função para resetar o formulario e fechar ele
+            handleClose(); // NOTE: função para resetar o formulario e fechar ele
         } catch (error) {
             console.log("[SUBMIT]", error);
         }
-    }
+    };
 
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
@@ -87,7 +88,10 @@ export const MessageFileModal = () => {
                 </DialogHeader>
 
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-8"
+                    >
                         <div className="space-y-8 px-6">
                             <div className="flex items-center justify-center text-center">
                                 <FormField
@@ -97,7 +101,7 @@ export const MessageFileModal = () => {
                                         <FormItem>
                                             <FormControl>
                                                 <FileUpload
-                                                    endpoint="messageFile"
+                                                    endpoint="messageFile" // NOTE: de uploadthing arquivo `core.ts`
                                                     value={field.value}
                                                     onChange={field.onChange}
                                                 />
@@ -109,7 +113,7 @@ export const MessageFileModal = () => {
                         </div>
 
                         <DialogFooter className="bg-gray-100 px-6 py-4">
-                            <Button variant="primary" disabled={isLoading}>
+                            <Button disabled={isLoading} variant="primary">
                                 Send
                             </Button>
                         </DialogFooter>
@@ -117,5 +121,5 @@ export const MessageFileModal = () => {
                 </Form>
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};
